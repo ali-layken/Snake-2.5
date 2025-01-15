@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://de54k5itfthtv"]
+
+[sub_resource type="Curve" id="Curve_cebpd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jw5bi"]
+curve = SubResource("Curve_cebpd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f57c8"]
+lifetime_randomness = 0.45
+particle_flag_disable_z = true
+angle_max = 200.5
+spread = 0.0
+radial_velocity_max = 33.76
+gravity = Vector3(0, 0, 0)
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_jw5bi")
+color = Color(0.976471, 0.184314, 0.247059, 1)
+hue_variation_max = 0.1
+turbulence_noise_strength = 9.06
+turbulence_noise_scale = 8.67
+
+[node name="Explosion" type="GPUParticles2D"]
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_f57c8")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0

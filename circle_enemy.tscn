@@ -1,0 +1,125 @@
+[gd_scene load_steps=19 format=3 uid="uid://4unl3jfxl714"]
+
+[ext_resource type="Texture2D" uid="uid://h6w0ldhhywo4" path="res://enemy_frames/circle_enemy.png" id="1_qjc8l"]
+[ext_resource type="Shader" path="res://circle_enemy.gdshader" id="1_tft4t"]
+[ext_resource type="Texture2D" uid="uid://d2e27i2k3vgrj" path="res://enemy_frames/circle_enemy_glow.png" id="2_q2vrt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2inb"]
+shader = ExtResource("1_tft4t")
+shader_parameter/glow_color = Color(0.270588, 0, 0.898039, 0.870588)
+shader_parameter/glow_power = 2.1
+shader_parameter/glow_radius = 10.0
+shader_parameter/glow_shift = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fa58"]
+shader = ExtResource("1_tft4t")
+shader_parameter/glow_color = Color(0.618894, 0.364258, 0.911507, 1)
+shader_parameter/glow_power = 8.0
+shader_parameter/glow_radius = 1.0
+shader_parameter/glow_shift = 1.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy5a7"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnmlp"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg7fh"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26ets"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idl0e"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diip1"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ucsx"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j217"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju6f7"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d7ig"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhrn0"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37lef"]
+atlas = ExtResource("2_q2vrt")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rb4nr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy5a7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnmlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg7fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26ets")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idl0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diip1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ucsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j217")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ju6f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d7ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhrn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37lef")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
+
+[node name="CircleEnemy" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+scale = Vector2(0.2, 0.2)
+
+[node name="Circle" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i2inb")
+texture = ExtResource("1_qjc8l")
+
+[node name="GlowSprite" type="AnimatedSprite2D" parent="Circle"]
+material = SubResource("ShaderMaterial_7fa58")
+sprite_frames = SubResource("SpriteFrames_rb4nr")
+frame_progress = 0.0273146

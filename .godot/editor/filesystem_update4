@@ -1,0 +1,9 @@
+res://drop_map.tscn
+res://Snake.gd
+res://circle_enemy.gdshader
+res://whitebox.gdshader
+res://tile_map.tscn
+res://snake_sprite.tscn
+res://snake_body.tscn
+res://SnakeDie.tscn
+res://circle_enemy.tscn

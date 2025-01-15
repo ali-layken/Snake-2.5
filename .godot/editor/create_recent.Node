@@ -1,0 +1,15 @@
+MarginContainer
+Sprite2D
+Label
+GPUParticles2D
+WorldEnvironment
+CanvasLayer
+SpringArm3D
+Node2D
+AnimatedSprite2D
+Area2D
+CollisionShape2D
+CharacterBody2D
+MeshInstance2D
+MeshInstance3D
+TextureRect

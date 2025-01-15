@@ -1,0 +1,157 @@
+[gd_scene load_steps=23 format=3 uid="uid://bm28deysomyfy"]
+
+[ext_resource type="Script" path="res://tile_map.gd" id="1_68jn5"]
+[ext_resource type="Texture2D" uid="uid://ds5tgn3qjldb0" path="res://bg_frames/frame_0001.png" id="3_vbbgl"]
+[ext_resource type="Texture2D" uid="uid://c0srcprhte4rg" path="res://bg_frames/frame_0002.png" id="4_txcvb"]
+[ext_resource type="Texture2D" uid="uid://ne0gc3eyrbm1" path="res://bg_frames/frame_0011.png" id="5_d3qy5"]
+[ext_resource type="Texture2D" uid="uid://fads0moepg8" path="res://bg_frames/frame_0012.png" id="6_rfw3k"]
+[ext_resource type="Texture2D" uid="uid://bmlld5q746h5g" path="res://bg_frames/frame_0003.png" id="7_h2u1a"]
+[ext_resource type="Texture2D" uid="uid://cjyajdcvphwr4" path="res://bg_frames/frame_0004.png" id="8_5x6pq"]
+[ext_resource type="Texture2D" uid="uid://bwpwu1pkqduup" path="res://bg_frames/frame_0005.png" id="9_vmtp1"]
+[ext_resource type="Texture2D" uid="uid://cphffae2gjr3a" path="res://bg_frames/frame_0006.png" id="10_4a7sk"]
+[ext_resource type="Texture2D" uid="uid://is3mayehbuiu" path="res://bg_frames/frame_0007.png" id="11_03i22"]
+[ext_resource type="Texture2D" uid="uid://dv2n0k3s8dl43" path="res://bg_frames/frame_0008.png" id="12_q4wc1"]
+[ext_resource type="Script" path="res://LongestDisplay.gd" id="13_4j81w"]
+[ext_resource type="Script" path="res://CurrentDisplay.gd" id="13_qejb1"]
+[ext_resource type="Texture2D" uid="uid://dbli1td8yekbo" path="res://bg_frames/frame_0009.png" id="13_vw0eo"]
+[ext_resource type="Texture2D" uid="uid://rkusd3e4xly0" path="res://bg_frames/frame_0010.png" id="14_bvl2q"]
+[ext_resource type="PackedScene" uid="uid://di7fcvv03uikt" path="res://snake_sprite.tscn" id="16_tf0my"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_p6bwv"]
+frames = 12
+speed_scale = 15.5
+frame_0/texture = ExtResource("3_vbbgl")
+frame_1/texture = ExtResource("4_txcvb")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("7_h2u1a")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("8_5x6pq")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("9_vmtp1")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("10_4a7sk")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("11_03i22")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("12_q4wc1")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("13_vw0eo")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("14_bvl2q")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("5_d3qy5")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("6_rfw3k")
+frame_11/duration = 1.0
+
+[sub_resource type="Gradient" id="Gradient_b80h2"]
+offsets = PackedFloat32Array(0.544276)
+colors = PackedColorArray(0.211765, 0.356863, 0.972549, 0.294118)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ku631"]
+gradient = SubResource("Gradient_b80h2")
+use_hdr = true
+
+[sub_resource type="SystemFont" id="SystemFont_ljvlj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nvkf5"]
+font = SubResource("SystemFont_ljvlj")
+font_color = Color(1, 0.24, 0.24, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lhxa6"]
+
+[node name="main" type="Node2D"]
+position = Vector2(576, 320)
+script = ExtResource("1_68jn5")
+metadata/longest = 0
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="StarBackground" type="TextureRect" parent="Background"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_p6bwv")
+
+[node name="ScoreDisplay" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Container" type="MarginContainer" parent="ScoreDisplay"]
+offset_left = -100.0
+offset_top = 23.0
+offset_right = 156.0
+offset_bottom = 125.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Backdrop" type="TextureRect" parent="ScoreDisplay/Container"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("GradientTexture1D_ku631")
+
+[node name="eq1" type="Label" parent="ScoreDisplay/Container/Backdrop"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 11.0
+offset_right = 203.0
+offset_bottom = 35.0
+text = " = "
+label_settings = SubResource("LabelSettings_nvkf5")
+
+[node name="eq2" type="Label" parent="ScoreDisplay/Container/Backdrop"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 60.0
+offset_right = 203.0
+offset_bottom = 84.0
+text = " = "
+label_settings = SubResource("LabelSettings_nvkf5")
+
+[node name="LongestDisplay" type="Label" parent="ScoreDisplay/Container/Backdrop"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 11.0
+offset_right = 272.0
+offset_bottom = 34.0
+label_settings = SubResource("LabelSettings_lhxa6")
+script = ExtResource("13_4j81w")
+
+[node name="SnakeSprite" parent="ScoreDisplay/Container/Backdrop/LongestDisplay" instance=ExtResource("16_tf0my")]
+position = Vector2(-77.6, 11.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.166997
+
+[node name="SnakeSprite2" parent="ScoreDisplay/Container/Backdrop/LongestDisplay" instance=ExtResource("16_tf0my")]
+position = Vector2(-64.6, 11.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.166997
+
+[node name="SnakeSprite3" parent="ScoreDisplay/Container/Backdrop/LongestDisplay" instance=ExtResource("16_tf0my")]
+position = Vector2(-51.6, 11.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.166997
+
+[node name="SnakeSprite4" parent="ScoreDisplay/Container/Backdrop/LongestDisplay" instance=ExtResource("16_tf0my")]
+position = Vector2(-38.6, 11.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.166997
+
+[node name="CurrentDisplay" type="Label" parent="ScoreDisplay/Container/Backdrop"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 61.0
+offset_right = 274.0
+offset_bottom = 84.0
+text = "6000
+"
+script = ExtResource("13_qejb1")
+
+[node name="SnakeSprite" parent="ScoreDisplay/Container/Backdrop/CurrentDisplay" instance=ExtResource("16_tf0my")]
+position = Vector2(-58, 12)
+frame_progress = 0.166997
